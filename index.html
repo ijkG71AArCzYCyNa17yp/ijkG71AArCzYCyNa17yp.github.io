@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Status Page</h1>
+        </header>
+        
+        <div class="datetime">
+            <h2>Date and Time</h2>
+            <p id="date-time"></p>
+        </div>
+        
+        <div class="status">
+            <h2>Status: <span id="status-indicator">🟢 200 Active</span></h2>
+        </div>
+        
+        <div class="gossip">
+            <h2>Gossip</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel mauris nec nisl sodales cursus.</p>
+        </div>
+        
+        <div class="admin-link">
+            <span onclick="showAdminPage()">Admin Login</span>
+        </div>
+        
+        <div class="admin-page hidden" id="admin-page">
+            <h2>Admin Page</h2>
+            <input type="password" id="admin-password" placeholder="Enter Password">
+            <button onclick="login()">Login</button>
+            <div class="hidden" id="admin-controls">
+                <h3>Update Status</h3>
+                <button onclick="updateStatus('🟢 200 Active')">🟢 200 Active</button>
+                <button onclick="updateStatus('🟡 504 Gateway Timeout')">🟡 504 Gateway Timeout</button>
+                <button onclick="updateStatus('🔴 404 Unresponsive')">🔴 404 Unresponsive</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
