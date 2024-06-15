@@ -13,6 +13,14 @@ function login() {
 
 function updateStatus(status) {
     document.getElementById('status-indicator').innerText = status;
+    localStorage.setItem('status', status); // Save status to local storage
+}
+
+function loadStatus() {
+    const status = localStorage.getItem('status');
+    if (status) {
+        document.getElementById('status-indicator').innerText = status;
+    }
 }
 
 function updateDateTime() {
@@ -21,5 +29,8 @@ function updateDateTime() {
     document.getElementById('date-time').innerText = dateTimeString;
 }
 
-setInterval(updateDateTime, 1000);
-updateDateTime(); // Initial call to display the date and time immediately
+document.addEventListener('DOMContentLoaded', (event) => {
+    loadStatus(); // Load the status when the page loads
+    updateDateTime(); // Initial call to display the date and time immediately
+    setInterval(updateDateTime, 1000); // Update the date and time every second
+});
